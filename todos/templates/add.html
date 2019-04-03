@@ -1,0 +1,45 @@
+{% include 'partials/header.html' %}
+
+
+<div class="container">
+<p class="lead text-muted">
+      Add To-Do 
+    </p>
+</div>
+
+<div class="container">
+<form action="{% url 'add' %}" method="post">
+{% csrf_token %}
+
+<label for='title'> Title</label><br/>
+{% if not title %}
+<input type='text' name='title' id='title'/>
+{%else%}
+<input type='text' name='title' id='title' value='{{title}}' />
+{%endif%}
+
+<br><br>
+<label for='text'> Text</label><br/>
+{% if not text %}
+<textarea name='text' id='text'></textarea>
+{%else%}
+<textarea name='text' id='text' cols="30" rows="3">{{text}}</textarea>
+{%endif%}
+<br><br>
+
+<label for='time'> Schedule For (format: 03-Apr-2019 3:00 pm)</label><br/>
+{% if not schedule %}
+<input type='datetime-local' name='schedule' id='time'></input>
+{%else%}
+<input type='datetime-local' name='schedule' id='time' value='{{schedule}}'>
+{%endif%}
+<br><br>
+
+<input type='submit' value='save' class="btn btn-primary"/>
+
+</form>
+<br>
+</div>
+
+
+{% include 'partials/footer.html' %}

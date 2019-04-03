@@ -1,0 +1,28 @@
+{% include 'partials/header.html' %}
+
+<div class="container">
+
+  <div style="background-color:lightblue;padding:1em;margin-right:1em">
+    <h1><i class="card-text"></i> {{todo.title}}</h1>
+  </div>
+  <br/>
+  <div style="background-color:lightblue;padding:1em;margin-right:1em">
+  
+    <h4>Description:</h4> 
+    <p>{{todo.text}}</p>
+    <br>
+    <h4>Schedule for:</h4>
+    <p>{{todo.schedule}}</p>
+</div>
+  <br/>
+  <div> 
+   <h4><i aria-hidden="true"></i>  Created on {{todo.created_at}}</h4>
+  </div>
+
+
+
+</div>
+
+<br><br>
+
+{% include 'partials/footer.html' %}

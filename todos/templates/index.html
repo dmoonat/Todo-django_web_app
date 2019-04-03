@@ -1,0 +1,47 @@
+{% include 'partials/header.html' %}
+
+	
+
+	<div class="album py-5" style="background-color:">
+    <div class="container">
+    <p class="lead text-muted">
+      To-Do List
+    </p>
+    </div>
+    <div class="container">
+    	
+      <div class="row">
+      {% for todo in todos %}
+        <div class="col-md-4">
+          
+          <div class="card mb-4 shadow-sm">
+          
+            <div class="card-body" style="background-color:lightblue">
+              <p class="card-text"><i class="fa fa-newspaper-o"></i> <strong>{{todo.title}}</strong></p>
+             <p class="card-text">{{todo.schedule}}</p>
+              
+              
+              <a href="/todos/details/{{todo.id}}" class="btn btn-primary" role="button">View </a>
+              <a href="/todos/edit/{{todo.id}}" class="btn btn-primary" role="button">Edit</a>
+              <a href="/todos/delete/{{todo.id}}" class="btn btn-primary" role="button">Delete</a>
+              <hr/>
+              {% if todo.completed %}
+              	<a href="/todos/incomplete/{{todo.id}}" class="btn btn-secondary" role="button">Mark Incomplete</a>
+              {% else %}
+              	<a href="/todos/complete/{{todo.id}}" class="btn btn-primary" role="button">Mark Complete</a>
+              {% endif %}
+
+
+            </div>
+          </div>
+        </div>
+       {% endfor %} 
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+
+
+{% include 'partials/footer.html' %}
